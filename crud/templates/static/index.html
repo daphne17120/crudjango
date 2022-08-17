@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <title>{% block titulo %}   {% endblock %}</title>
+</head>
+<body>
+     <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'index' %}">Inicio </a>
+        </div>
+    </nav>
+<a name="" id=""class="btn btn-success"href="{% url 'crear' %}"role="button">Agregar Usuario Nuevo</a>
+
+
+     <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% block contenido %} {% endblock %}
+
+            </div>
+        </div>
+     </div>
+
+     <div class="card-body">
+       <h4 class="card-title">Usuarios</h4>
+               <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for crud2 in index2 %}
+                <tr>
+                    <td>{{ crud2.id }}</td>
+                    <td>{{ crud2.nombre }}</td>
+                    <td>{{ crud2.apellido }}</td>
+                    <td>{{ crud2.correo }}</td>
+                    <td>{{ crud2.telefono }}</td>
+                    <td>{{ crud2.estado }}</td>
+                    <td><a name="" id="" class="btn btn-info" href="{% url 'actualizar' crud2.id %}" role="button"> Actualizar </a>
+                        |
+                        <a name="" id="" class="btn btn-danger" href="{% url 'borrar' crud2.id %}" role="button"> Eliminar </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>
