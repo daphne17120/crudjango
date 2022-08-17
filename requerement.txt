@@ -1,0 +1,14 @@
+#Consultar version de python 
+python >= 3.10
+
+#instalación de Django
+pip install Django
+ 
+#Instalar Mysql 
+pip install mysqlclient
+
+#Iniciando el servidor
+python manage.py runserver
+
+
+
